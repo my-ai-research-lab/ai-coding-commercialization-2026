@@ -356,6 +356,83 @@
             .findings-grid { grid-template-columns: repeat(2, 1fr); }
             .two-col { grid-template-columns: 1fr; }
             .report-title { font-size: 1.4rem; }
+            .tooltip-content { display: none !important; }
+        }
+
+        /* Tooltip Styles */
+        .has-tooltip {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dashed var(--text-muted);
+        }
+        .tooltip-content {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 1000;
+            font-size: 0.75rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .tooltip-content::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: var(--bg-secondary);
+        }
+        .has-tooltip:hover .tooltip-content {
+            opacity: 1;
+            visibility: visible;
+        }
+        .tooltip-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .tooltip-section {
+            margin-bottom: 0.75rem;
+        }
+        .tooltip-section:last-child {
+            margin-bottom: 0;
+        }
+        .tooltip-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+        .tooltip-text {
+            color: var(--text-secondary);
+        }
+        .tooltip-list {
+            list-style: none;
+            color: var(--text-secondary);
+        }
+        .tooltip-list li {
+            padding: 0.15rem 0;
+            padding-left: 0.75rem;
+            position: relative;
+        }
+        .tooltip-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
         }
         @media (max-width: 480px) {
             .findings-grid { grid-template-columns: 1fr; }
@@ -513,8 +590,49 @@
                             <td><strong>成本认知</strong></td>
                             <td>认识到AI边际成本线性增长</td>
                             <td class="highlight-col"><span class="tag tag-green">✓ 制造业思维</span></td>
-                            <td><span class="tag tag-red">✗</span></td>
-                            <td><span class="tag tag-orange">△</span></td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-red">✗</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">Trae - 成本认知分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">现状</div>
+                                            <div class="tooltip-text">采用完全免费策略，600万用户每个都在消耗Token成本</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">问题</div>
+                                            <ul class="tooltip-list">
+                                                <li>用互联网思维理解AI产品</li>
+                                                <li>未意识到边际成本线性增长</li>
+                                                <li>免费用户越多亏损越大</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-orange">△</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">灵码+Qoder - 成本认知分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">现状</div>
+                                            <div class="tooltip-text">自研Qwen-Coder-Qoder模型，对成本有一定控制</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">优势</div>
+                                            <ul class="tooltip-list">
+                                                <li>自研模型降低调用成本</li>
+                                                <li>B端收费有成本回收意识</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">差距</div>
+                                            <div class="tooltip-text">仍在打价格战，客单价被卷至40万以下</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-red">✗</span></td>
                             <td><span class="tag tag-orange">△</span></td>
                             <td><span class="tag tag-orange">△</span></td>
@@ -523,7 +641,30 @@
                             <td><strong>核心指标</strong></td>
                             <td>追求Agent Hours而非DAU</td>
                             <td class="highlight-col"><span class="tag tag-green">✓ Agent Hours</span></td>
-                            <td><span class="tag tag-red">✗ DAU</span></td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-red">✗ DAU</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">Trae - 核心指标分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">现状</div>
+                                            <div class="tooltip-text">主要宣传600万注册用户、市场份额等DAU指标</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">问题</div>
+                                            <ul class="tooltip-list">
+                                                <li>DAU不代表商业可持续性</li>
+                                                <li>未统计任务完成率</li>
+                                                <li>未识别高价值付费用户</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">对比Manus</div>
+                                            <div class="tooltip-text">Manus追求Agent Hours，单用户月付几千美金</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-red">✗ DAU</span></td>
                             <td><span class="tag tag-red">✗ DAU</span></td>
                             <td><span class="tag tag-red">✗ DAU</span></td>
@@ -533,19 +674,120 @@
                             <td><strong>PMF明确度</strong></td>
                             <td>明确"谁愿意为什么付费"</td>
                             <td class="highlight-col"><span class="tag tag-green">✓ Prosumers</span></td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-red">✗ 泛用户</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">Trae - PMF分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">定位</div>
+                                            <div class="tooltip-text">"所有开发者的AI伙伴"——定位过于宽泛</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">未回答的关键问题</div>
+                                            <ul class="tooltip-list">
+                                                <li>谁是核心付费用户？</li>
+                                                <li>他们愿意为什么场景付费？</li>
+                                                <li>他们能接受什么价格？</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-orange">△ B端</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">灵码+Qoder - PMF分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">定位</div>
+                                            <div class="tooltip-text">以B端企业客户为主，有相对明确的付费场景</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">优势</div>
+                                            <ul class="tooltip-list">
+                                                <li>企业客户有付费意愿</li>
+                                                <li>Quest自主编程切入高价值场景</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">差距</div>
+                                            <div class="tooltip-text">B端客单价被卷，难以覆盖成本</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-red">✗ 泛用户</span></td>
-                            <td><span class="tag tag-orange">△ B端</span></td>
-                            <td><span class="tag tag-red">✗ 泛用户</span></td>
-                            <td><span class="tag tag-orange">△ 微信</span></td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-orange">△ 微信</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">CodeBuddy - PMF分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">定位</div>
+                                            <div class="tooltip-text">绑定微信小程序生态，有差异化场景</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">机会</div>
+                                            <ul class="tooltip-list">
+                                                <li>微信小程序开发者有明确需求</li>
+                                                <li>生态绑定形成独特壁垒</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">差距</div>
+                                            <div class="tooltip-text">变现路径尚未验证</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-red">✗ 内部</span></td>
                         </tr>
                         <tr>
                             <td><strong>定价策略</strong></td>
                             <td>Day1设计可持续定价</td>
                             <td class="highlight-col"><span class="tag tag-green">✓ $几千/月</span></td>
-                            <td><span class="tag tag-red">✗ 免费</span></td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-red">✗ 免费</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">Trae - 定价策略分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">现状</div>
+                                            <div class="tooltip-text">完全免费，无付费选项</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">风险</div>
+                                            <ul class="tooltip-list">
+                                                <li>转付费时用户大量流失</li>
+                                                <li>培养了用户"免费"心智</li>
+                                                <li>每月持续烧钱无回收</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-orange">△ 限免</span></td>
-                            <td><span class="tag tag-orange">△ 59元</span></td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-orange">△ 59元</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">Comate - 定价策略分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">现状</div>
+                                            <div class="tooltip-text">59元/月的订阅定价</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">问题</div>
+                                            <ul class="tooltip-list">
+                                                <li>价格过低难以覆盖AI推理成本</li>
+                                                <li>高频用户越多亏损越大</li>
+                                                <li>与Manus $几千/月差距悬殊</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-red">✗ 免费</span></td>
                             <td><span class="tag tag-red">✗ 免费</span></td>
                         </tr>
@@ -563,7 +805,30 @@
                             <td><strong>数据飞轮</strong></td>
                             <td>形成独特数据资产</td>
                             <td class="highlight-col"><span class="tag tag-green">✓ 已形成</span></td>
-                            <td><span class="tag tag-red">✗</span></td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-red">✗</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">Trae - 数据飞轮分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">现状</div>
+                                            <div class="tooltip-text">用户不付费，数据价值存疑</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">问题</div>
+                                            <ul class="tooltip-list">
+                                                <li>免费用户数据质量低</li>
+                                                <li>无法形成独特数据资产</li>
+                                                <li>对上游模型厂商无议价权</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">对比Manus</div>
+                                            <div class="tooltip-text">"全世界都在帮我们训模型"——用户反馈形成飞轮</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-orange">△ 内部</span></td>
                             <td><span class="tag tag-red">✗</span></td>
                             <td><span class="tag tag-red">✗</span></td>
@@ -574,10 +839,51 @@
                             <td>最优模型组合</td>
                             <td class="highlight-col"><span class="tag tag-green">✓ 最优组合</span></td>
                             <td><span class="tag tag-orange">△ 豆包</span></td>
-                            <td><span class="tag tag-green">✓ Qoder</span></td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-green">✓ Qoder</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">灵码+Qoder - 模型能力分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">优势</div>
+                                            <div class="tooltip-text">自研Qwen-Coder-Qoder模型，编程能力领先</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">核心能力</div>
+                                            <ul class="tooltip-list">
+                                                <li>Quest自主编程能力强</li>
+                                                <li>4800B参数规模</li>
+                                                <li>技术壁垒最高</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-orange">△ 文心</span></td>
                             <td><span class="tag tag-orange">△ 混元</span></td>
-                            <td><span class="tag tag-green">✓ LongCat</span></td>
+                            <td>
+                                <span class="has-tooltip">
+                                    <span class="tag tag-green">✓ LongCat</span>
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">CatPaw - 模型能力分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">优势</div>
+                                            <div class="tooltip-text">自研LongCat模型，内部验证充分</div>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">现状</div>
+                                            <ul class="tooltip-list">
+                                                <li>内部95%渗透率</li>
+                                                <li>自研模型有技术壁垒</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">差距</div>
+                                            <div class="tooltip-text">外部PMF未验证，后发劣势明显</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                         </tr>
                         <tr>
                             <td><strong>盈利状态</strong></td>
@@ -646,8 +952,50 @@
                             <td><strong>Trae</strong></td>
                             <td>字节</td>
                             <td><span class="tag tag-red">完全免费</span></td>
-                            <td>SOLO模式、600万用户、国际版</td>
-                            <td>模型非自研壁垒弱、无变现路径</td>
+                            <td>
+                                <span class="has-tooltip">
+                                    SOLO模式、600万用户
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">Trae 核心优势详解</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">产品特色</div>
+                                            <ul class="tooltip-list">
+                                                <li>SOLO模式：完整项目自动化开发</li>
+                                                <li>国际版同步发布，全球化布局</li>
+                                                <li>IDE形态，类Cursor体验</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">用户规模</div>
+                                            <div class="tooltip-text">600万注册用户，国内市场份额领先</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="has-tooltip">
+                                    模型非自研、无变现路径
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">Trae 致命问题分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">模型壁垒弱</div>
+                                            <ul class="tooltip-list">
+                                                <li>依赖豆包+DeepSeek等第三方模型</li>
+                                                <li>无自研编程大模型</li>
+                                                <li>成本和能力受制于人</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">变现困境</div>
+                                            <ul class="tooltip-list">
+                                                <li>完全免费培养"白嫖"心智</li>
+                                                <li>转付费将面临用户大量流失</li>
+                                                <li>600万免费用户每月烧钱</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-orange">中</span></td>
                             <td>海外先验证付费模型</td>
                         </tr>
@@ -655,8 +1003,50 @@
                             <td><strong>灵码+Qoder</strong></td>
                             <td>阿里</td>
                             <td><span class="tag tag-orange">限时免费</span></td>
-                            <td>自研Qoder模型、Quest自主编程</td>
-                            <td>B端客单价被卷至40万以下</td>
+                            <td>
+                                <span class="has-tooltip">
+                                    自研Qoder、Quest自主编程
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">灵码+Qoder 核心优势详解</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">模型自研</div>
+                                            <ul class="tooltip-list">
+                                                <li>Qwen-Coder-Qoder自研编程模型</li>
+                                                <li>4800B参数规模</li>
+                                                <li>编程能力业界领先</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">Quest自主编程</div>
+                                            <ul class="tooltip-list">
+                                                <li>复杂任务自主规划执行</li>
+                                                <li>端到端项目生成</li>
+                                                <li>高价值场景切入</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="has-tooltip">
+                                    B端客单价被卷至40万以下
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">灵码+Qoder 问题分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">价格战困境</div>
+                                            <ul class="tooltip-list">
+                                                <li>企业版客单价从百万级被卷至40万以下</li>
+                                                <li>难以覆盖AI推理成本</li>
+                                                <li>陷入囚徒困境无法破局</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">商业化差距</div>
+                                            <div class="tooltip-text">尽管技术领先，但商业模式仍未跑通</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-green">低</span></td>
                             <td>发挥模型优势、专注高付费行业</td>
                         </tr>
@@ -664,8 +1054,46 @@
                             <td><strong>Comate</strong></td>
                             <td>百度</td>
                             <td><span class="tag tag-blue">59元/月</span></td>
-                            <td>多模态多智能体协同</td>
-                            <td>技术驱动非用户驱动、场景不高频</td>
+                            <td>
+                                <span class="has-tooltip">
+                                    多模态多智能体协同
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">Comate 核心优势详解</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">技术特色</div>
+                                            <ul class="tooltip-list">
+                                                <li>设计稿转代码能力</li>
+                                                <li>多智能体协同开发</li>
+                                                <li>多模态输入支持</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">定价策略</div>
+                                            <div class="tooltip-text">是唯一有明确付费定价的产品（59元/月）</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="has-tooltip">
+                                    技术驱动非用户驱动
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">Comate 问题分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">场景问题</div>
+                                            <ul class="tooltip-list">
+                                                <li>"设计稿转代码"不是高频场景</li>
+                                                <li>技术能力强但未找到PMF</li>
+                                                <li>产品设计缺乏用户视角</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">定价困境</div>
+                                            <div class="tooltip-text">59元/月难以覆盖AI推理成本，高频用户越多亏损越大</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-orange">中</span></td>
                             <td>找到高频场景、用户驱动</td>
                         </tr>
@@ -673,8 +1101,46 @@
                             <td><strong>CodeBuddy</strong></td>
                             <td>腾讯</td>
                             <td><span class="tag tag-orange">限时免费</span></td>
-                            <td>三形态（插件+IDE+CLI）最完整</td>
-                            <td>变现路径不清晰、复杂度高</td>
+                            <td>
+                                <span class="has-tooltip">
+                                    三形态最完整
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">CodeBuddy 核心优势详解</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">产品形态</div>
+                                            <ul class="tooltip-list">
+                                                <li>插件形态：VSCode/JetBrains集成</li>
+                                                <li>IDE形态：独立开发环境</li>
+                                                <li>CLI形态：命令行工具</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">生态优势</div>
+                                            <div class="tooltip-text">深度绑定微信小程序开发生态</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="has-tooltip">
+                                    变现路径不清晰
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">CodeBuddy 问题分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">复杂度问题</div>
+                                            <ul class="tooltip-list">
+                                                <li>三种形态增加产品复杂度</li>
+                                                <li>用户认知成本高</li>
+                                                <li>资源分散难以聚焦</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">变现困境</div>
+                                            <div class="tooltip-text">微信生态优势明显但变现模式待验证</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-green">低</span></td>
                             <td>深耕微信小程序生态</td>
                         </tr>
@@ -682,8 +1148,46 @@
                             <td><strong>CatPaw</strong></td>
                             <td>美团</td>
                             <td><span class="tag tag-blue">公测免费</span></td>
-                            <td>自研LongCat模型、内部95%渗透</td>
-                            <td>后发劣势、外部PMF未验证</td>
+                            <td>
+                                <span class="has-tooltip">
+                                    自研LongCat、内部95%渗透
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">CatPaw 核心优势详解</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">模型自研</div>
+                                            <ul class="tooltip-list">
+                                                <li>LongCat自研编程模型</li>
+                                                <li>针对美团场景深度优化</li>
+                                                <li>有一定技术壁垒</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">内部验证</div>
+                                            <div class="tooltip-text">内部工程师95%渗透率，产品已经过大规模验证</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="has-tooltip">
+                                    后发劣势、外部PMF未验证
+                                    <div class="tooltip-content">
+                                        <div class="tooltip-title">CatPaw 问题分析</div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">后发劣势</div>
+                                            <ul class="tooltip-list">
+                                                <li>进入市场较晚，竞争激烈</li>
+                                                <li>品牌认知度较低</li>
+                                                <li>差异化定位不清晰</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tooltip-section">
+                                            <div class="tooltip-label">PMF问题</div>
+                                            <div class="tooltip-text">内部PMF≠外部PMF，美团场景不代表通用场景</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </td>
                             <td><span class="tag tag-orange">中</span></td>
                             <td>明确外部PMF、差异化定位</td>
                         </tr>
