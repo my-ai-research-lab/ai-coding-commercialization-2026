@@ -648,6 +648,271 @@
             line-height: 1.6;
         }
 
+        /* ============ Pathway Section ============ */
+        .pathway-section {
+            background: linear-gradient(135deg, rgba(26, 127, 55, 0.04) 0%, rgba(26, 127, 55, 0.02) 100%);
+            border: 1px solid rgba(26, 127, 55, 0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin-bottom: var(--space-6);
+        }
+        
+        .pathway-section.wrong {
+            background: linear-gradient(135deg, rgba(207, 34, 46, 0.04) 0%, rgba(207, 34, 46, 0.02) 100%);
+            border-color: rgba(207, 34, 46, 0.2);
+        }
+        
+        .pathway-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-4);
+            margin-bottom: var(--space-5);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px solid rgba(26, 127, 55, 0.15);
+        }
+        
+        .pathway-section.wrong .pathway-header {
+            border-bottom-color: rgba(207, 34, 46, 0.15);
+        }
+        
+        .pathway-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            font-size: 18px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .pathway-icon.correct {
+            background: linear-gradient(135deg, var(--accent-success) 0%, #2da44e 100%);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(26, 127, 55, 0.3);
+        }
+        
+        .pathway-icon.wrong {
+            background: linear-gradient(135deg, var(--accent-danger) 0%, #ff6b6b 100%);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(207, 34, 46, 0.3);
+        }
+        
+        .pathway-title-wrap {
+            flex: 1;
+        }
+        
+        .pathway-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .pathway-subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        .pathway-steps {
+            display: flex;
+            align-items: stretch;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+        }
+        
+        .pathway-step {
+            flex: 1;
+            min-width: 140px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        
+        .step-number {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-success);
+            color: #fff;
+            border-radius: 50%;
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        
+        .step-desc {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .pathway-arrow {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            color: var(--accent-success);
+            font-weight: 600;
+        }
+        
+        @media (max-width: 960px) {
+            .pathway-steps {
+                flex-direction: column;
+            }
+            .pathway-arrow {
+                transform: rotate(90deg);
+                justify-content: center;
+            }
+        }
+        
+        /* Deviation Grid */
+        .deviation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-3);
+        }
+        
+        @media (max-width: 768px) {
+            .deviation-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .deviation-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(207, 34, 46, 0.2);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+        }
+        
+        .deviation-wrong {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--accent-danger);
+            margin-bottom: 4px;
+        }
+        
+        .deviation-result {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        
+        /* Future Paths */
+        .future-paths {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+            margin: var(--space-6) 0;
+        }
+        
+        @media (max-width: 768px) {
+            .future-paths {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .future-path {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-5);
+            border: 1px solid var(--border-default);
+        }
+        
+        .future-path.continue {
+            border-left: 4px solid var(--accent-danger);
+        }
+        
+        .future-path.pivot {
+            border-left: 4px solid var(--accent-success);
+        }
+        
+        .path-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-3);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .path-icon {
+            font-size: 20px;
+        }
+        
+        .path-label {
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .path-list {
+            list-style: none;
+            margin-bottom: var(--space-4);
+        }
+        
+        .path-list li {
+            padding: var(--space-2) 0;
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            line-height: 1.5;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .path-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .path-list li strong {
+            color: var(--text-primary);
+        }
+        
+        .path-verdict {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3);
+            background: var(--bg-subtle);
+            border-radius: var(--radius-sm);
+        }
+        
+        .verdict-label {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+            font-weight: 500;
+        }
+        
+        .verdict-value {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+        }
+        
+        .verdict-value.red {
+            color: var(--accent-danger);
+        }
+        
+        .verdict-value.green {
+            color: var(--accent-success);
+        }
+
         /* ============ References ============ */
         .references {
             margin-top: var(--space-8);
@@ -1689,6 +1954,140 @@
                 <div class="section-number">05</div>
                 <h2 class="section-title">2026年预测与转型机会</h2>
             </div>
+
+            <!-- 正确的商业化路径 -->
+            <div class="pathway-section">
+                <div class="pathway-header">
+                    <div class="pathway-icon correct">✓</div>
+                    <div class="pathway-title-wrap">
+                        <h3 class="pathway-title">AI产品正确的商业化路径</h3>
+                        <p class="pathway-subtitle">以Manus为标杆的成功范式</p>
+                    </div>
+                </div>
+                <div class="pathway-steps">
+                    <div class="pathway-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <div class="step-title">Day 1 认知：AI ≠ 互联网</div>
+                            <div class="step-desc">边际成本线性增长，每多一个用户就多一份成本。用"制造业"而非"互联网"思维经营。</div>
+                        </div>
+                    </div>
+                    <div class="pathway-arrow">→</div>
+                    <div class="pathway-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <div class="step-title">Day 1 定价：直接收费</div>
+                            <div class="step-desc">Day 1 就收费验证付费意愿，"愿意付费"才是真正的产品价值证明。</div>
+                        </div>
+                    </div>
+                    <div class="pathway-arrow">→</div>
+                    <div class="pathway-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <div class="step-title">精准 PMF：高价值用户</div>
+                            <div class="step-desc">专注Prosumers（愿意付几千美元/月的专业用户），不追求规模、只追求价值。</div>
+                        </div>
+                    </div>
+                    <div class="pathway-arrow">→</div>
+                    <div class="pathway-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <div class="step-title">核心指标：Agent Hours</div>
+                            <div class="step-desc">以Agent工作时长为北极星指标，衡量真实价值创造，而非DAU虚荣指标。</div>
+                        </div>
+                    </div>
+                    <div class="pathway-arrow">→</div>
+                    <div class="pathway-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <div class="step-title">正向飞轮：数据资产</div>
+                            <div class="step-desc">高价值用户反馈 → 模型优化 → 更好体验 → 更多付费 → 形成护城河。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 目前走偏的情况 -->
+            <div class="pathway-section wrong">
+                <div class="pathway-header">
+                    <div class="pathway-icon wrong">✗</div>
+                    <div class="pathway-title-wrap">
+                        <h3 class="pathway-title">国内产品走偏的现状</h3>
+                        <p class="pathway-subtitle">互联网思维主导下的囚徒困境</p>
+                    </div>
+                </div>
+                <div class="deviation-grid">
+                    <div class="deviation-item">
+                        <div class="deviation-wrong">❌ 完全免费获客</div>
+                        <div class="deviation-result">培养用户"白嫖"心智，转付费难</div>
+                    </div>
+                    <div class="deviation-item">
+                        <div class="deviation-wrong">❌ 追求DAU规模</div>
+                        <div class="deviation-result">600万用户≠商业价值</div>
+                    </div>
+                    <div class="deviation-item">
+                        <div class="deviation-wrong">❌ 泛用户策略</div>
+                        <div class="deviation-result">无法形成精准PMF</div>
+                    </div>
+                    <div class="deviation-item">
+                        <div class="deviation-wrong">❌ 价格战内卷</div>
+                        <div class="deviation-result">囚徒困境，谁都不敢先收费</div>
+                    </div>
+                    <div class="deviation-item">
+                        <div class="deviation-wrong">❌ 大厂KPI导向</div>
+                        <div class="deviation-result">追求可汇报数据，非真实价值</div>
+                    </div>
+                    <div class="deviation-item">
+                        <div class="deviation-wrong">❌ 成本无意识</div>
+                        <div class="deviation-result">每月持续烧钱，无盈利时间表</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 两条路线预测 -->
+            <div class="future-paths">
+                <div class="future-path continue">
+                    <div class="path-header">
+                        <div class="path-icon">📉</div>
+                        <div class="path-label">继续当前路径</div>
+                    </div>
+                    <ul class="path-list">
+                        <li><strong>2026 Q2：</strong>免费战持续，营销成本攀升，毛利率持续为负</li>
+                        <li><strong>2026 Q4：</strong>大厂开始缩减AI Coding预算，团队裁员或合并</li>
+                        <li><strong>2027：</strong>海外产品（Cursor/Claude Code）进入中国市场，本土产品失去先发优势</li>
+                        <li><strong>最终：</strong>沦为大厂内部工具或被迫并购，商业化彻底失败</li>
+                    </ul>
+                    <div class="path-verdict">
+                        <span class="verdict-label">结局预判</span>
+                        <span class="verdict-value red">❌ 全面失败，市场拱手让人</span>
+                    </div>
+                </div>
+                <div class="future-path pivot">
+                    <div class="path-header">
+                        <div class="path-icon">📈</div>
+                        <div class="path-label">及时转向机会</div>
+                    </div>
+                    <ul class="path-list">
+                        <li><strong>立即：</strong>停止免费战，选择1-2个垂直场景验证付费意愿</li>
+                        <li><strong>3个月：</strong>找到真正PMF，确立愿意付几百/几千元/月的用户画像</li>
+                        <li><strong>6个月：</strong>建立Agent Hours为核心的指标体系，证明价值创造</li>
+                        <li><strong>12个月：</strong>形成数据飞轮，构建护城河，实现正向现金流</li>
+                    </ul>
+                    <div class="path-verdict">
+                        <span class="verdict-label">结局预判</span>
+                        <span class="verdict-value green">✓ 有望成为中国版Cursor/Manus</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <div class="insight-title">关键洞察</div>
+                <p class="insight-content-text">
+                    <strong>时间窗口正在关闭。</strong>海外产品（Cursor、Claude Code、Copilot）正在快速迭代，一旦解决合规问题进入中国市场，国内产品将面临"技术+商业模式"的双重碾压。当前是转型的最佳时机——趁着还有用户基础，趁着还有资金支持，趁着竞争对手还没进来。<strong>每多一天免费战，就多一天沉没成本。</strong>
+                </p>
+            </div>
+
+            <h3 style="font-size: 15px; font-weight: 600; color: #24292f; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #eaeef2;">📊 2026年三种场景预测</h3>
 
             <div class="table-wrap">
                 <table>
