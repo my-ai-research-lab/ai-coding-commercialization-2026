@@ -8,7 +8,7 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230969da'/%3E%3Cstop offset='100%25' stop-color='%231a7f37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='url(%23grad)'/%3E%3Cpath d='M10 11l-4 5 4 5' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M22 11l4 5-4 5' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M18 8l-4 16' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ============================================
            Premium Design System
@@ -1321,7 +1321,7 @@
                     </span>
                     报告目录
                 </div>
-                <span class="toc-count">5 个章节</span>
+                <span class="toc-count">6 个章节</span>
             </div>
             <ul class="toc-list">
                 <li class="toc-item">
@@ -1352,6 +1352,12 @@
                     <a href="#section-5" class="toc-link">
                         <span class="toc-num">05</span>
                         <span class="toc-text">2026年预测与转型</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#section-6" class="toc-link">
+                        <span class="toc-num">06</span>
+                        <span class="toc-text">商业本质深度洞察</span>
                     </a>
                 </li>
                 <li class="toc-item highlight">
@@ -1388,6 +1394,58 @@
             <div class="section-header">
                 <div class="section-number">01</div>
                 <h2 class="section-title">AI产品 vs 互联网产品：本质差异</h2>
+            </div>
+
+            <!-- 章节核心图：边际成本对比 -->
+            <div style="background: #fff; border: 1px solid #d0d7de; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #0969da; background: rgba(9,105,218,0.1); padding: 4px 12px; border-radius: 20px;">核心洞察</span>
+                </div>
+                <svg viewBox="0 0 500 220" style="width: 100%; max-width: 550px; margin: 0 auto; display: block;">
+                    <defs>
+                        <linearGradient id="internetGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#0969da"/>
+                            <stop offset="100%" stop-color="#54aeff"/>
+                        </linearGradient>
+                        <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#cf222e"/>
+                            <stop offset="100%" stop-color="#ff7b72"/>
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 坐标轴 -->
+                    <line x1="70" y1="170" x2="460" y2="170" stroke="#d0d7de" stroke-width="1.5"/>
+                    <line x1="70" y1="40" x2="70" y2="170" stroke="#d0d7de" stroke-width="1.5"/>
+                    
+                    <!-- 轴标签 -->
+                    <text x="35" y="105" font-size="13" fill="#57606a" text-anchor="middle" font-weight="500" transform="rotate(-90,35,105)">边际成本</text>
+                    <text x="265" y="200" font-size="13" fill="#57606a" text-anchor="middle" font-weight="500">用户规模 →</text>
+                    
+                    <!-- 互联网产品曲线 -->
+                    <path d="M 90 60 Q 190 140, 290 155 Q 390 162, 440 164" fill="none" stroke="url(#internetGrad)" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <!-- AI产品曲线 -->
+                    <path d="M 90 150 L 440 55" fill="none" stroke="url(#aiGrad)" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <!-- 曲线标签 -->
+                    <text x="455" y="168" font-size="13" fill="#0969da" font-weight="600">互联网</text>
+                    <text x="455" y="52" font-size="13" fill="#cf222e" font-weight="600">AI</text>
+                    
+                    <!-- 关键洞察：交叉点标注 -->
+                    <circle cx="190" cy="108" r="5" fill="#bf8700"/>
+                    <line x1="190" y1="103" x2="190" y2="30" stroke="#bf8700" stroke-width="1.5" stroke-dasharray="4,2"/>
+                    <text x="190" y="22" font-size="12" fill="#bf8700" text-anchor="middle" font-weight="600">⚠️ 成本交叉点</text>
+                </svg>
+                <div style="display: flex; justify-content: center; gap: 32px; margin-top: 16px; font-size: 13px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="width: 24px; height: 4px; background: linear-gradient(90deg, #0969da, #54aeff); border-radius: 2px;"></span>
+                        <span style="color: #0969da; font-weight: 500;">互联网：规模越大成本越低</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="width: 24px; height: 4px; background: linear-gradient(90deg, #cf222e, #ff7b72); border-radius: 2px;"></span>
+                        <span style="color: #cf222e; font-weight: 500;">AI：用户越多亏损越大</span>
+                    </div>
+                </div>
             </div>
 
             <div class="table-wrap">
@@ -1480,6 +1538,70 @@
             <div class="section-header">
                 <div class="section-number">02</div>
                 <h2 class="section-title">关键成功要素对比：标杆 vs 国内产品</h2>
+            </div>
+
+            <!-- 章节核心图：雷达图对比 -->
+            <div style="background: #fff; border: 1px solid #d0d7de; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #1a7f37; background: rgba(26,127,55,0.1); padding: 4px 12px; border-radius: 20px;">关键要素对比</span>
+                </div>
+                <svg viewBox="0 0 440 260" style="width: 100%; max-width: 500px; margin: 0 auto; display: block;">
+                    <defs>
+                        <linearGradient id="manusGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1a7f37" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="#2da44e" stop-opacity="0.08"/>
+                        </linearGradient>
+                        <linearGradient id="domesticGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#cf222e" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="#ff7b72" stop-opacity="0.08"/>
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 雷达图网格 -->
+                    <polygon points="220,40 325,88 325,182 220,230 115,182 115,88" fill="none" stroke="#d0d7de" stroke-width="1"/>
+                    <polygon points="220,75 288,107 288,163 220,195 152,163 152,107" fill="none" stroke="#eaeef2" stroke-width="1"/>
+                    <polygon points="220,110 251,126 251,144 220,160 189,144 189,126" fill="none" stroke="#eaeef2" stroke-width="1"/>
+                    
+                    <!-- 轴线 -->
+                    <line x1="220" y1="135" x2="220" y2="40" stroke="#eaeef2" stroke-width="1"/>
+                    <line x1="220" y1="135" x2="325" y2="88" stroke="#eaeef2" stroke-width="1"/>
+                    <line x1="220" y1="135" x2="325" y2="182" stroke="#eaeef2" stroke-width="1"/>
+                    <line x1="220" y1="135" x2="220" y2="230" stroke="#eaeef2" stroke-width="1"/>
+                    <line x1="220" y1="135" x2="115" y2="182" stroke="#eaeef2" stroke-width="1"/>
+                    <line x1="220" y1="135" x2="115" y2="88" stroke="#eaeef2" stroke-width="1"/>
+                    
+                    <!-- Manus 数据 - 绿色满分 -->
+                    <polygon points="220,45 320,90 320,180 220,225 120,180 120,90" fill="url(#manusGrad2)" stroke="#1a7f37" stroke-width="2.5"/>
+                    
+                    <!-- 国内平均数据 - 红色25% -->
+                    <polygon points="220,100 255,118 255,152 220,170 185,152 185,118" fill="url(#domesticGrad2)" stroke="#cf222e" stroke-width="2"/>
+                    
+                    <!-- 维度标签 -->
+                    <text x="220" y="28" font-size="13" fill="#24292f" text-anchor="middle" font-weight="500">成本认知</text>
+                    <text x="338" y="85" font-size="13" fill="#24292f" text-anchor="start" font-weight="500">核心指标</text>
+                    <text x="338" y="190" font-size="13" fill="#24292f" text-anchor="start" font-weight="500">PMF</text>
+                    <text x="220" y="252" font-size="13" fill="#24292f" text-anchor="middle" font-weight="500">定价策略</text>
+                    <text x="100" y="190" font-size="13" fill="#24292f" text-anchor="end" font-weight="500">数据飞轮</text>
+                    <text x="100" y="85" font-size="13" fill="#24292f" text-anchor="end" font-weight="500">盈利状态</text>
+                    
+                    <!-- 中心差距标注 -->
+                    <circle cx="220" cy="135" r="22" fill="#fff" stroke="#bf8700" stroke-width="2"/>
+                    <text x="220" y="140" font-size="14" fill="#cf222e" text-anchor="middle" font-weight="700">75%</text>
+                </svg>
+                <div style="display: flex; justify-content: center; gap: 24px; margin-top: 16px; font-size: 13px;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 12px; height: 12px; background: #1a7f37; border-radius: 2px;"></span>
+                        <span style="color: #1a7f37; font-weight: 500;">Manus 8/8</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 12px; height: 12px; background: #cf222e; border-radius: 2px;"></span>
+                        <span style="color: #cf222e; font-weight: 500;">国内平均 2/8</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 12px; height: 12px; background: #bf8700; border-radius: 50%;"></span>
+                        <span style="color: #bf8700; font-weight: 500;">差距 75%</span>
+                    </div>
+                </div>
             </div>
 
             <div class="table-wrap">
@@ -1612,6 +1734,90 @@
             <div class="section-header">
                 <div class="section-number">03</div>
                 <h2 class="section-title">五款产品诊断：问题与建议</h2>
+            </div>
+
+            <!-- 章节核心图：产品定位矩阵 -->
+            <div style="background: #fff; border: 1px solid #d0d7de; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #bf8700; background: rgba(191,135,0,0.1); padding: 4px 12px; border-radius: 20px;">产品定位</span>
+                </div>
+                <svg viewBox="0 0 480 290" style="width: 100%; max-width: 550px; margin: 0 auto; display: block;">
+                    <defs>
+                        <linearGradient id="quadGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1a7f37" stop-opacity="0.1"/>
+                            <stop offset="100%" stop-color="#2da44e" stop-opacity="0.03"/>
+                        </linearGradient>
+                        <linearGradient id="quadRed" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#cf222e" stop-opacity="0.1"/>
+                            <stop offset="100%" stop-color="#ff7b72" stop-opacity="0.03"/>
+                        </linearGradient>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#0969da"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- 四象限背景 -->
+                    <rect x="248" y="25" width="210" height="110" fill="url(#quadGreen)" rx="6"/>
+                    <rect x="22" y="145" width="210" height="110" fill="url(#quadRed)" rx="6"/>
+                    
+                    <!-- 坐标轴 -->
+                    <line x1="22" y1="140" x2="458" y2="140" stroke="#d0d7de" stroke-width="1.5"/>
+                    <line x1="240" y1="25" x2="240" y2="255" stroke="#d0d7de" stroke-width="1.5"/>
+                    
+                    <!-- 轴标签 -->
+                    <text x="445" y="130" font-size="13" fill="#57606a" text-anchor="end">PMF →</text>
+                    <text x="252" y="42" font-size="13" fill="#57606a">定价 ↑</text>
+                    
+                    <!-- 象限标签 -->
+                    <text x="350" y="52" font-size="14" fill="#1a7f37" font-weight="600">✓ 成功</text>
+                    <text x="115" y="172" font-size="14" fill="#cf222e" font-weight="600">✗ 困境</text>
+                    
+                    <!-- Manus -->
+                    <circle cx="410" cy="70" r="24" fill="#1a7f37"/>
+                    <text x="410" y="74" font-size="12" fill="#fff" text-anchor="middle" font-weight="600">Manus</text>
+                    
+                    <!-- Cursor -->
+                    <circle cx="360" cy="95" r="18" fill="#2da44e"/>
+                    <text x="360" y="99" font-size="11" fill="#fff" text-anchor="middle" font-weight="600">Cursor</text>
+                    
+                    <!-- 灵码 -->
+                    <circle cx="220" cy="130" r="16" fill="#bf8700"/>
+                    <text x="220" y="134" font-size="11" fill="#fff" text-anchor="middle" font-weight="600">灵码</text>
+                    
+                    <!-- 国内产品群 -->
+                    <circle cx="115" cy="195" r="22" fill="#cf222e" opacity="0.9"/>
+                    <text x="115" y="199" font-size="11" fill="#fff" text-anchor="middle" font-weight="600">Trae</text>
+                    
+                    <circle cx="68" cy="175" r="15" fill="#cf222e" opacity="0.75"/>
+                    <text x="68" y="179" font-size="9" fill="#fff" text-anchor="middle" font-weight="500">Comate</text>
+                    
+                    <circle cx="155" cy="222" r="14" fill="#cf222e" opacity="0.65"/>
+                    <text x="155" y="226" font-size="9" fill="#fff" text-anchor="middle" font-weight="500">Buddy</text>
+                    
+                    <circle cx="90" cy="230" r="12" fill="#cf222e" opacity="0.55"/>
+                    <text x="90" y="234" font-size="8" fill="#fff" text-anchor="middle" font-weight="500">CatPaw</text>
+                    
+                    <!-- 转型箭头 -->
+                    <path d="M 140 185 Q 240 120, 335 95" fill="none" stroke="#0969da" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowhead)"/>
+                    <text x="252" y="115" font-size="12" fill="#0969da" font-weight="600">转型 →</text>
+                </svg>
+                <div style="display: flex; justify-content: center; gap: 24px; margin-top: 16px; font-size: 13px;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 10px; height: 10px; background: #1a7f37; border-radius: 50%;"></span>
+                        <span style="color: #57606a;">盈利</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 10px; height: 10px; background: #bf8700; border-radius: 50%;"></span>
+                        <span style="color: #57606a;">微利</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 10px; height: 10px; background: #cf222e; border-radius: 50%;"></span>
+                        <span style="color: #57606a;">亏损</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="color: #57606a;">圆圈大小 = 用户规模</span>
+                    </div>
+                </div>
             </div>
 
             <div class="table-wrap">
@@ -1890,6 +2096,66 @@
                 <h2 class="section-title">根本原因分析</h2>
             </div>
 
+            <!-- 章节核心图：鱼骨图 -->
+            <div style="background: #fff; border: 1px solid #d0d7de; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #cf222e; background: rgba(207,34,46,0.1); padding: 4px 12px; border-radius: 20px;">根因分析</span>
+                </div>
+                <svg viewBox="0 0 550 220" style="width: 100%; max-width: 600px; margin: 0 auto; display: block;">
+                    <!-- 主干线 -->
+                    <line x1="35" y1="110" x2="450" y2="110" stroke="#cf222e" stroke-width="4"/>
+                    
+                    <!-- 结果框 -->
+                    <rect x="450" y="80" width="90" height="60" rx="8" fill="#cf222e"/>
+                    <text x="495" y="105" font-size="13" fill="#fff" text-anchor="middle" font-weight="600">商业化</text>
+                    <text x="495" y="122" font-size="13" fill="#fff" text-anchor="middle" font-weight="600">困境</text>
+                    
+                    <!-- 上方分支：认知层面 -->
+                    <line x1="120" y1="110" x2="85" y2="45" stroke="#0969da" stroke-width="2"/>
+                    <text x="85" y="35" font-size="13" fill="#0969da" text-anchor="middle" font-weight="500">互联网思维</text>
+                    
+                    <line x1="215" y1="110" x2="180" y2="40" stroke="#0969da" stroke-width="2"/>
+                    <text x="180" y="30" font-size="13" fill="#0969da" text-anchor="middle" font-weight="500">DAU迷信</text>
+                    
+                    <line x1="310" y1="110" x2="275" y2="45" stroke="#0969da" stroke-width="2"/>
+                    <text x="275" y="35" font-size="13" fill="#0969da" text-anchor="middle" font-weight="500">KPI导向</text>
+                    
+                    <line x1="405" y1="110" x2="370" y2="50" stroke="#0969da" stroke-width="2"/>
+                    <text x="370" y="40" font-size="13" fill="#0969da" text-anchor="middle" font-weight="500">窗口焦虑</text>
+                    
+                    <!-- 下方分支：执行层面 -->
+                    <line x1="120" y1="110" x2="85" y2="175" stroke="#bf8700" stroke-width="2"/>
+                    <text x="85" y="195" font-size="13" fill="#bf8700" text-anchor="middle" font-weight="500">PMF假象</text>
+                    
+                    <line x1="215" y1="110" x2="180" y2="180" stroke="#bf8700" stroke-width="2"/>
+                    <text x="180" y="200" font-size="13" fill="#bf8700" text-anchor="middle" font-weight="500">定价恐惧</text>
+                    
+                    <line x1="310" y1="110" x2="275" y2="175" stroke="#bf8700" stroke-width="2"/>
+                    <text x="275" y="195" font-size="13" fill="#bf8700" text-anchor="middle" font-weight="500">变现压力</text>
+                    
+                    <line x1="405" y1="110" x2="370" y2="170" stroke="#bf8700" stroke-width="2"/>
+                    <text x="370" y="190" font-size="13" fill="#bf8700" text-anchor="middle" font-weight="500">资源错配</text>
+                    
+                    <!-- 分类标签 -->
+                    <text x="35" y="22" font-size="11" fill="#0969da" font-weight="600">▲ 认知</text>
+                    <text x="35" y="212" font-size="11" fill="#bf8700" font-weight="600">▼ 执行</text>
+                </svg>
+                <div style="display: flex; justify-content: center; gap: 28px; margin-top: 16px; font-size: 13px;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 24px; height: 3px; background: #0969da;"></span>
+                        <span style="color: #0969da; font-weight: 500;">认知错误</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 24px; height: 3px; background: #bf8700;"></span>
+                        <span style="color: #bf8700; font-weight: 500;">执行偏差</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 12px; height: 12px; background: #cf222e; border-radius: 2px;"></span>
+                        <span style="color: #cf222e; font-weight: 500;">商业化困境</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="table-wrap">
                 <table>
                     <thead>
@@ -1982,6 +2248,75 @@
             <div class="section-header">
                 <div class="section-number">05</div>
                 <h2 class="section-title">2026年预测与转型机会</h2>
+            </div>
+
+            <!-- 章节核心图：转型时间线 -->
+            <div style="background: #fff; border: 1px solid #d0d7de; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #0969da; background: rgba(9,105,218,0.1); padding: 4px 12px; border-radius: 20px;">路径预测</span>
+                </div>
+                <svg viewBox="0 0 550 200" style="width: 100%; max-width: 600px; margin: 0 auto; display: block;">
+                    <defs>
+                        <linearGradient id="successPath" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#1a7f37"/>
+                            <stop offset="100%" stop-color="#2da44e"/>
+                        </linearGradient>
+                        <linearGradient id="failPath" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#cf222e"/>
+                            <stop offset="100%" stop-color="#ff7b72"/>
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 时间轴 -->
+                    <line x1="50" y1="100" x2="500" y2="100" stroke="#d0d7de" stroke-width="2"/>
+                    
+                    <!-- 时间节点 -->
+                    <circle cx="75" cy="100" r="6" fill="#24292f"/>
+                    <text x="75" y="125" font-size="12" fill="#24292f" text-anchor="middle" font-weight="600">现在</text>
+                    
+                    <circle cx="195" cy="100" r="5" fill="#8b949e"/>
+                    <text x="195" y="125" font-size="11" fill="#8b949e" text-anchor="middle">Q2</text>
+                    
+                    <circle cx="315" cy="100" r="5" fill="#8b949e"/>
+                    <text x="315" y="125" font-size="11" fill="#8b949e" text-anchor="middle">Q4</text>
+                    
+                    <circle cx="475" cy="100" r="6" fill="#24292f"/>
+                    <text x="475" y="125" font-size="12" fill="#24292f" text-anchor="middle" font-weight="600">2027</text>
+                    
+                    <!-- 成功路径 -->
+                    <path d="M 75 93 Q 135 50 195 42 Q 270 32 315 28 Q 400 22 475 18" fill="none" stroke="url(#successPath)" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="475" cy="18" r="12" fill="#1a7f37"/>
+                    <text x="475" y="23" font-size="10" fill="#fff" text-anchor="middle" font-weight="600">✓</text>
+                    <text x="512" y="22" font-size="12" fill="#1a7f37" text-anchor="start" font-weight="600">成功</text>
+                    
+                    <!-- 失败路径 -->
+                    <path d="M 75 107 Q 135 140 195 158 Q 270 175 315 180 Q 400 186 475 188" fill="none" stroke="url(#failPath)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="8,4"/>
+                    <circle cx="475" cy="188" r="12" fill="#cf222e"/>
+                    <text x="475" y="193" font-size="10" fill="#fff" text-anchor="middle" font-weight="600">✗</text>
+                    <text x="512" y="192" font-size="12" fill="#cf222e" text-anchor="start" font-weight="600">失败</text>
+                    
+                    <!-- 分叉点 -->
+                    <rect x="40" y="80" width="70" height="24" rx="4" fill="#bf8700"/>
+                    <text x="75" y="96" font-size="10" fill="#fff" text-anchor="middle" font-weight="600">关键抉择</text>
+                    
+                    <!-- 路径标签 -->
+                    <text x="265" y="22" font-size="12" fill="#1a7f37" text-anchor="middle" font-weight="600">PMF→指标→飞轮</text>
+                    <text x="265" y="195" font-size="12" fill="#cf222e" text-anchor="middle" font-weight="600">免费战→缩减→出局</text>
+                </svg>
+                <div style="display: flex; justify-content: center; gap: 28px; margin-top: 16px; font-size: 13px;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 24px; height: 4px; background: linear-gradient(90deg, #1a7f37, #2da44e); border-radius: 2px;"></span>
+                        <span style="color: #1a7f37; font-weight: 500;">及时转型</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 24px; height: 4px; background: repeating-linear-gradient(90deg, #cf222e 0, #cf222e 5px, transparent 5px, transparent 8px);"></span>
+                        <span style="color: #cf222e; font-weight: 500;">维持现状</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 12px; height: 12px; background: #bf8700; border-radius: 2px;"></span>
+                        <span style="color: #bf8700; font-weight: 500;">窗口期：Q1-Q2</span>
+                    </div>
+                </div>
             </div>
 
             <!-- 正确的商业化路径 -->
@@ -2179,6 +2514,398 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </section>
+
+        <!-- Section 6: 商业本质深度洞察 -->
+        <section id="section-6" class="section">
+            <div class="section-header">
+                <div class="section-number">06</div>
+                <h2 class="section-title">商业本质深度洞察：穿透现象看本质</h2>
+            </div>
+
+            <!-- 章节核心图：六大洞察金字塔 -->
+            <div style="background: #fff; border: 1px solid #d0d7de; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #8250df; background: rgba(130,80,223,0.1); padding: 4px 12px; border-radius: 20px;">洞察框架</span>
+                </div>
+                <svg viewBox="0 0 500 260" style="width: 100%; max-width: 550px; margin: 0 auto; display: block;">
+                    <defs>
+                        <linearGradient id="pyramidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#8250df"/>
+                            <stop offset="50%" stop-color="#0969da"/>
+                            <stop offset="100%" stop-color="#1a7f37"/>
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- 金字塔 -->
+                    <polygon points="250,25 75,220 425,220" fill="none" stroke="url(#pyramidGrad)" stroke-width="3"/>
+                    
+                    <!-- 层级分割线 -->
+                    <line x1="120" y1="155" x2="380" y2="155" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4,2"/>
+                    <line x1="165" y1="90" x2="335" y2="90" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4,2"/>
+                    
+                    <!-- 顶层：结论 -->
+                    <text x="250" y="68" font-size="15" fill="#8250df" text-anchor="middle" font-weight="700">认知错误</text>
+                    
+                    <!-- 中层：理论 -->
+                    <text x="175" y="128" font-size="13" fill="#0969da" text-anchor="middle" font-weight="600">经济学</text>
+                    <text x="250" y="128" font-size="13" fill="#0969da" text-anchor="middle" font-weight="600">博弈论</text>
+                    <text x="325" y="128" font-size="13" fill="#0969da" text-anchor="middle" font-weight="600">管理学</text>
+                    
+                    <!-- 底层：现象 -->
+                    <text x="135" y="192" font-size="13" fill="#1a7f37" text-anchor="middle" font-weight="500">免费战</text>
+                    <text x="215" y="192" font-size="13" fill="#1a7f37" text-anchor="middle" font-weight="500">DAU迷信</text>
+                    <text x="295" y="192" font-size="13" fill="#1a7f37" text-anchor="middle" font-weight="500">价格战</text>
+                    <text x="375" y="192" font-size="13" fill="#1a7f37" text-anchor="middle" font-weight="500">KPI导向</text>
+                    
+                    <!-- 层级标签 -->
+                    <rect x="18" y="48" width="50" height="22" rx="4" fill="#8250df"/>
+                    <text x="43" y="63" font-size="10" fill="#fff" text-anchor="middle" font-weight="600">结论</text>
+                    
+                    <rect x="18" y="110" width="50" height="22" rx="4" fill="#0969da"/>
+                    <text x="43" y="125" font-size="10" fill="#fff" text-anchor="middle" font-weight="600">理论</text>
+                    
+                    <rect x="18" y="175" width="50" height="22" rx="4" fill="#1a7f37"/>
+                    <text x="43" y="190" font-size="10" fill="#fff" text-anchor="middle" font-weight="600">现象</text>
+                    
+                    <!-- 归因箭头 -->
+                    <path d="M 70 192 L 70 130 L 70 68 L 150 45" fill="none" stroke="#bf8700" stroke-width="2" stroke-dasharray="4,2"/>
+                    
+                    <!-- 底部标注 -->
+                    <text x="250" y="245" font-size="12" fill="#57606a" text-anchor="middle" font-weight="500">6个学科视角 → 1个核心结论</text>
+                </svg>
+                <div style="display: flex; justify-content: center; gap: 20px; margin-top: 16px; font-size: 13px;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 10px; height: 10px; background: #8250df; border-radius: 2px;"></span>
+                        <span style="color: #8250df; font-weight: 500;">结论</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 10px; height: 10px; background: #0969da; border-radius: 2px;"></span>
+                        <span style="color: #0969da; font-weight: 500;">理论分析</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 10px; height: 10px; background: #1a7f37; border-radius: 2px;"></span>
+                        <span style="color: #1a7f37; font-weight: 500;">市场现象</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 10px; height: 10px; background: #bf8700; border-radius: 2px;"></span>
+                        <span style="color: #bf8700; font-weight: 500;">归因路径</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote">
+                <div class="quote-text">"一切商业模式失败的根源，都可以追溯到对某个基本经济规律的违背。"</div>
+                <div class="quote-author">— 本报告核心洞察</div>
+            </div>
+
+            <!-- 洞察1：边际成本陷阱 -->
+            <h3 style="font-size: 15px; font-weight: 600; color: #24292f; margin: 28px 0 16px; display: flex; align-items: center; gap: 10px;">
+                <span style="width: 24px; height: 24px; background: linear-gradient(135deg, #0969da 0%, #1a7f37 100%); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">1</span>
+                边际成本经济学：为什么"免费"是AI产品的毒药
+            </h3>
+
+            <div class="insight-box">
+                <div class="insight-title">经济学本质</div>
+                <div class="insight-content">
+                    <div class="insight-content-title">边际成本递减 vs 边际成本恒定</div>
+                    <div class="insight-content-text">
+                        互联网产品的商业模式建立在<strong>边际成本递减</strong>的经济规律之上：微信每多一个用户，边际成本趋近于零。这使得"免费+规模+广告"的三段式变现成为可能。
+                        <br><br>
+                        但AI产品打破了这一规律。每一次推理都消耗真实的GPU算力，每多一个用户就线性增加成本。这本质上不是软件经济学，而是<strong>制造业经济学</strong>——更接近"每卖一台汽车就要用一吨钢材"的逻辑。
+                        <br><br>
+                        <strong>经济学结论：</strong>在边际成本恒定的行业里采用边际成本递减行业的免费策略，等于选择了一条必然亏损的道路。这不是商业策略问题，而是<strong>违背了基本经济规律</strong>。
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-wrap" style="margin-top: 24px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>经济学概念</th>
+                            <th>互联网产品</th>
+                            <th>AI产品</th>
+                            <th>商业启示</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>边际成本曲线</strong></td>
+                            <td>急剧下降趋近于零</td>
+                            <td>水平或微降</td>
+                            <td>AI不能用免费换规模</td>
+                        </tr>
+                        <tr>
+                            <td><strong>规模经济</strong></td>
+                            <td>规模越大成本越低</td>
+                            <td>规模越大成本越高</td>
+                            <td>追求用户量是错误KPI</td>
+                        </tr>
+                        <tr>
+                            <td><strong>价值捕获时点</strong></td>
+                            <td>可延迟（先圈地后收费）</td>
+                            <td>必须同步（每次交付即结算）</td>
+                            <td>Day 1必须设计收费</td>
+                        </tr>
+                        <tr>
+                            <td><strong>用户价值密度</strong></td>
+                            <td>长尾用户有聚合价值</td>
+                            <td>低价值用户是纯负债</td>
+                            <td>必须筛选高价值用户</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 洞察2：价值测量困境 -->
+            <h3 style="font-size: 15px; font-weight: 600; color: #24292f; margin: 32px 0 16px; display: flex; align-items: center; gap: 10px;">
+                <span style="width: 24px; height: 24px; background: linear-gradient(135deg, #0969da 0%, #1a7f37 100%); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">2</span>
+                价值测量理论：DAU是AI时代的"虚荣指标"
+            </h3>
+
+            <div class="two-col">
+                <div class="col-box">
+                    <div class="col-box-title red">❌ DAU的测量偏差</div>
+                    <ul class="col-list">
+                        <li><strong>计数谬误</strong>：把"来过"等同于"用过"，把"用过"等同于"有价值"</li>
+                        <li><strong>平均值陷阱</strong>：1万个薅羊毛用户稀释100个付费用户的信号</li>
+                        <li><strong>反向选择</strong>：免费吸引的恰是最不愿付费的群体</li>
+                        <li><strong>虚假繁荣</strong>：600万DAU可能99%是零价值用户</li>
+                    </ul>
+                </div>
+                <div class="col-box">
+                    <div class="col-box-title green">✓ Agent Hours的测量逻辑</div>
+                    <ul class="col-list">
+                        <li><strong>价值当量</strong>：直接测量AI替代的人类工时</li>
+                        <li><strong>付费锚点</strong>：用户为节省1小时愿付多少钱？</li>
+                        <li><strong>正向筛选</strong>：只有真正重度用户才会产生高Agent Hours</li>
+                        <li><strong>可定价基础</strong>：$50/Agent Hour是可验证的商业模式</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <div class="insight-title">管理学本质</div>
+                <div class="insight-content">
+                    <div class="insight-content-title">彼得·德鲁克："能测量的才能管理"</div>
+                    <div class="insight-content-text">
+                        选择DAU作为北极星指标，本质上是在<strong>测量错误的东西</strong>。当你测量"用户数量"时，团队会优化"增加用户数量"；当你测量"Agent Hours"时，团队会优化"增加AI创造的价值"。
+                        <br><br>
+                        国内产品团队之所以沉迷于DAU，根本原因是<strong>DAU更容易汇报、更容易对齐大厂KPI体系</strong>。但这恰恰说明了问题：大厂的KPI体系是为互联网产品设计的，AI产品需要一套全新的价值测量体系。
+                        <br><br>
+                        <strong>管理学结论：</strong>指标即战略。选择DAU就是选择了互联网时代的战略框架，而AI时代需要以"价值交付密度"为核心的新框架。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 洞察3：囚徒困境 -->
+            <h3 style="font-size: 15px; font-weight: 600; color: #24292f; margin: 32px 0 16px; display: flex; align-items: center; gap: 10px;">
+                <span style="width: 24px; height: 24px; background: linear-gradient(135deg, #0969da 0%, #1a7f37 100%); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">3</span>
+                博弈论视角：免费战争是经典的囚徒困境
+            </h3>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;"></th>
+                            <th style="width: 37.5%;">竞争对手收费</th>
+                            <th style="width: 37.5%;">竞争对手免费</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>我方收费</strong></td>
+                            <td><span class="tag tag-green">双赢：市场健康发展</span></td>
+                            <td><span class="tag tag-red">我方劣势：用户流失</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>我方免费</strong></td>
+                            <td><span class="tag tag-orange">我方优势：抢用户</span></td>
+                            <td><span class="tag tag-red">双输：全行业亏损</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="insight-box">
+                <div class="insight-title">博弈论本质</div>
+                <div class="insight-content">
+                    <div class="insight-content-title">纳什均衡下的次优解</div>
+                    <div class="insight-content-text">
+                        当前的市场状态是典型的<strong>囚徒困境纳什均衡</strong>：每家都选择"免费"作为占优策略，但所有人都选择免费的结果是全行业亏损——这是一个<strong>帕累托次优的稳定状态</strong>。
+                        <br><br>
+                        <strong>为什么国内厂商陷入了这个困境？</strong>
+                        <ul style="margin: 12px 0; padding-left: 20px; color: #57606a; font-size: 13px; line-height: 1.7;">
+                            <li>缺乏协调机制：没有行业协会或领导者能协调定价</li>
+                            <li>短视决策：季度KPI压力导致选择短期"抢用户"而非长期"建价值"</li>
+                            <li>退出成本高：已投入的沉没成本让决策者难以改变方向</li>
+                            <li>模仿惯性：互联网时代的"免费致胜"经验形成了路径依赖</li>
+                        </ul>
+                        <strong>博弈论结论：</strong>打破囚徒困境需要一个"叛逆者"——率先证明收费也能成功。Manus和Cursor正是这样的叛逆者，他们通过在海外市场证明高价付费模式可行，正在重塑整个市场的博弈格局。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 洞察4：双边平台的单边陷阱 -->
+            <h3 style="font-size: 15px; font-weight: 600; color: #24292f; margin: 32px 0 16px; display: flex; align-items: center; gap: 10px;">
+                <span style="width: 24px; height: 24px; background: linear-gradient(135deg, #0969da 0%, #1a7f37 100%); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">4</span>
+                平台经济学：AI Coding不是平台，是服务
+            </h3>
+
+            <div class="insight-box">
+                <div class="insight-title">平台经济学本质</div>
+                <div class="insight-content">
+                    <div class="insight-content-title">双边市场 vs 单边服务的根本区别</div>
+                    <div class="insight-content-text">
+                        大厂习惯性地用<strong>平台思维</strong>做产品：淘宝连接买家和卖家，抖音连接观众和创作者，微信连接所有人。平台的核心价值在于<strong>网络效应</strong>——用户越多，每个用户的价值越大。
+                        <br><br>
+                        但AI Coding产品本质上是<strong>单边服务</strong>：开发者使用AI完成编程任务，没有"另一边"需要连接。更多开发者使用Cursor并不会让Cursor对其他开发者更有价值（除了贡献训练数据外）。
+                        <br><br>
+                        <strong>关键差异：</strong>
+                        <ul style="margin: 12px 0; padding-left: 20px; color: #57606a; font-size: 13px; line-height: 1.7;">
+                            <li><strong>平台</strong>：一边免费补贴，另一边付费变现（如游戏免费玩，道具收费）</li>
+                            <li><strong>服务</strong>：只有一边，必须这一边付费（如咨询公司、会计师事务所）</li>
+                        </ul>
+                        用平台补贴逻辑做单边服务，就像开餐厅却期望"顾客免费吃饭，厨师给我付钱"——这在逻辑上就不成立。
+                        <br><br>
+                        <strong>平台经济学结论：</strong>AI Coding的正确类比不是"淘宝"，而是"麦肯锡"——直接向使用服务的客户收费，而且收高价。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 洞察5：价值链位置 -->
+            <h3 style="font-size: 15px; font-weight: 600; color: #24292f; margin: 32px 0 16px; display: flex; align-items: center; gap: 10px;">
+                <span style="width: 24px; height: 24px; background: linear-gradient(135deg, #0969da 0%, #1a7f37 100%); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">5</span>
+                波特竞争战略：应用层的"夹层困境"
+            </h3>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>AI价值链层级</th>
+                            <th>代表玩家</th>
+                            <th>竞争态势</th>
+                            <th>利润空间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>基础设施层</strong></td>
+                            <td>NVIDIA、云厂商</td>
+                            <td>垄断/寡头</td>
+                            <td><span class="tag tag-green">高利润</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>模型层</strong></td>
+                            <td>OpenAI、Anthropic、通义</td>
+                            <td>激烈竞争中</td>
+                            <td><span class="tag tag-orange">不确定</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>应用层</strong></td>
+                            <td>Cursor、Trae、灵码</td>
+                            <td>极度内卷</td>
+                            <td><span class="tag tag-red">被挤压</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>用户层</strong></td>
+                            <td>开发者、企业</td>
+                            <td>买方市场</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="insight-box">
+                <div class="insight-title">战略管理本质</div>
+                <div class="insight-content">
+                    <div class="insight-content-title">迈克尔·波特五力模型分析</div>
+                    <div class="insight-content-text">
+                        AI Coding应用层面临<strong>"夹层困境"</strong>——上游模型厂商和下游用户同时挤压应用层的利润空间：
+                        <br><br>
+                        <strong>上游议价能力（高）：</strong>模型能力决定了应用的天花板，应用层依赖模型层
+                        <br>
+                        <strong>下游议价能力（高）：</strong>开发者可以轻松切换工具，转换成本极低
+                        <br>
+                        <strong>同业竞争强度（极高）：</strong>同质化严重，只能价格战
+                        <br>
+                        <strong>新进入者威胁（高）：</strong>Claude Code等模型厂商直接入场
+                        <br>
+                        <strong>替代品威胁（高）：</strong>模型能力提升可能让专用工具变得多余
+                        <br><br>
+                        <strong>战略结论：</strong>在这样的产业结构下，应用层的出路只有两条：<strong>向上整合</strong>（自研模型，如阿里的Qoder）或<strong>向下深耕</strong>（绑定特定场景，如微信小程序开发）。停留在中间地带的通用AI Coding工具，将持续面临利润被挤压的困境。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 洞察6：创新者窘境 -->
+            <h3 style="font-size: 15px; font-weight: 600; color: #24292f; margin: 32px 0 16px; display: flex; align-items: center; gap: 10px;">
+                <span style="width: 24px; height: 24px; background: linear-gradient(135deg, #0969da 0%, #1a7f37 100%); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;">6</span>
+                创新者窘境：大厂为什么做不好AI Coding
+            </h3>
+
+            <div class="two-col">
+                <div class="col-box">
+                    <div class="col-box-title red">❌ 大厂的结构性劣势</div>
+                    <ul class="col-list">
+                        <li><strong>资源配置惯性</strong>：习惯投入到"已验证"的市场，而非探索新PMF</li>
+                        <li><strong>KPI体系错配</strong>：DAU/MAU适合成熟业务，不适合创新业务</li>
+                        <li><strong>决策链过长</strong>：从产品到变现需要多层审批</li>
+                        <li><strong>内部博弈</strong>：AI Coding与主营业务存在资源竞争</li>
+                        <li><strong>成功者诅咒</strong>：过去的成功经验（免费打法）变成认知障碍</li>
+                    </ul>
+                </div>
+                <div class="col-box">
+                    <div class="col-box-title green">✓ 创业公司的结构性优势</div>
+                    <ul class="col-list">
+                        <li><strong>生存压力</strong>：必须Day 1就找到付费用户，没有"烧钱"选项</li>
+                        <li><strong>决策效率</strong>：创始人可以直接拍板定价策略</li>
+                        <li><strong>用户距离</strong>：团队直接接触用户，快速迭代PMF</li>
+                        <li><strong>价值观纯粹</strong>：追求产品价值而非"可汇报的指标"</li>
+                        <li><strong>无历史包袱</strong>：不需要为过去的免费承诺负责</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <div class="insight-title">克里斯坦森的创新者窘境</div>
+                <div class="insight-content">
+                    <div class="insight-content-text">
+                        克雷顿·克里斯坦森在《创新者的窘境》中揭示的规律正在AI Coding领域重演：<strong>大公司做出了理性的、符合短期利益的决策（免费获客），却因此错失了真正的商业机会。</strong>
+                        <br><br>
+                        大厂选择免费并非愚蠢，而是因为：
+                        <ul style="margin: 12px 0; padding-left: 20px; color: #57606a; font-size: 13px; line-height: 1.7;">
+                            <li>免费更容易汇报亮眼的DAU数据</li>
+                            <li>收费需要说服多个决策层</li>
+                            <li>免费符合大厂"圈地"的一贯打法</li>
+                            <li>收费失败的责任比免费失败更大</li>
+                        </ul>
+                        <strong>窘境的本质：</strong>大厂的组织结构和激励机制，使其天然倾向于选择"安全"的免费战略，而非"冒险"的付费验证。这是组织行为学层面的结构性问题，不是某个团队或决策者的问题。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 核心结论 -->
+            <div style="background: linear-gradient(135deg, rgba(9, 105, 218, 0.06) 0%, rgba(26, 127, 55, 0.06) 100%); border: 1px solid rgba(9, 105, 218, 0.2); border-radius: 12px; padding: 28px; margin-top: 32px;">
+                <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #0969da; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                    <span style="width: 8px; height: 8px; background: #0969da; border-radius: 50%;"></span>
+                    六大洞察的终极结论
+                </div>
+                <div style="font-size: 18px; font-weight: 600; color: #24292f; line-height: 1.5; margin-bottom: 16px;">
+                    国内AI Coding产品的困境不是执行问题，而是<span style="color: #cf222e;">认知系统错误</span>
+                </div>
+                <div style="color: #57606a; font-size: 14px; line-height: 1.7;">
+                    从边际成本经济学、价值测量理论、博弈论、平台经济学、波特竞争战略到创新者窘境——六个不同学科的分析框架都指向同一个结论：<strong>国内产品团队用互联网时代形成的认知框架来做AI时代的产品，这是一个系统性的范式错误。</strong>
+                    <br><br>
+                    这不是"优化定价"或"改进产品"能解决的问题，而是需要<strong>彻底重构对AI产品商业逻辑的理解</strong>。正确的问题不是"如何让更多人用我们的产品"，而是"谁愿意为什么价值付多少钱"。
+                    <br><br>
+                    <strong>穿透所有现象的本质洞察：</strong>AI产品的商业成功取决于能否抛弃互联网时代的"规模神话"，回归商业最朴素的第一性原理——<span style="color: #1a7f37; font-weight: 600;">创造价值，捕获价值，持续创造更大的价值。</span>
+                </div>
             </div>
         </section>
 
