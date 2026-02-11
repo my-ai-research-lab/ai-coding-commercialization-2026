@@ -1541,53 +1541,84 @@
             </div>
 
             <!-- 章节核心图：雷达图对比 -->
-            <div style="background: #fff; border: 1px solid #d0d7de; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+            <div style="background: #fff; border: 1px solid #d0d7de; border-radius: 12px; padding: 24px; margin-bottom: 24px; position: relative;">
                 <div style="text-align: center; margin-bottom: 16px;">
                     <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #1a7f37; background: rgba(26,127,55,0.1); padding: 4px 12px; border-radius: 20px;">关键要素对比</span>
                 </div>
-                <svg viewBox="0 0 440 260" style="width: 100%; max-width: 500px; margin: 0 auto; display: block;">
-                    <defs>
-                        <linearGradient id="manusGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#1a7f37" stop-opacity="0.25"/>
-                            <stop offset="100%" stop-color="#2da44e" stop-opacity="0.08"/>
-                        </linearGradient>
-                        <linearGradient id="domesticGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#cf222e" stop-opacity="0.25"/>
-                            <stop offset="100%" stop-color="#ff7b72" stop-opacity="0.08"/>
-                        </linearGradient>
-                    </defs>
+                <div class="radar-chart-container" style="position: relative; max-width: 480px; margin: 0 auto;">
+                    <svg viewBox="0 0 400 380" style="width: 100%; display: block;">
+                        <defs>
+                            <linearGradient id="manusGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#1a7f37" stop-opacity="0.2"/>
+                                <stop offset="100%" stop-color="#2da44e" stop-opacity="0.05"/>
+                            </linearGradient>
+                            <linearGradient id="domesticGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#cf222e" stop-opacity="0.2"/>
+                                <stop offset="100%" stop-color="#ff7b72" stop-opacity="0.05"/>
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- 雷达图网格 - 正六边形 -->
+                        <polygon points="200,50 330,125 330,275 200,350 70,275 70,125" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+                        <polygon points="200,100 297,156 297,244 200,300 103,244 103,156" fill="none" stroke="#eaeef2" stroke-width="0.6"/>
+                        <polygon points="200,150 265,188 265,212 200,250 135,212 135,188" fill="none" stroke="#eaeef2" stroke-width="0.6"/>
+                        
+                        <!-- 轴线 -->
+                        <line x1="200" y1="200" x2="200" y2="50" stroke="#eaeef2" stroke-width="0.6"/>
+                        <line x1="200" y1="200" x2="330" y2="125" stroke="#eaeef2" stroke-width="0.6"/>
+                        <line x1="200" y1="200" x2="330" y2="275" stroke="#eaeef2" stroke-width="0.6"/>
+                        <line x1="200" y1="200" x2="200" y2="350" stroke="#eaeef2" stroke-width="0.6"/>
+                        <line x1="200" y1="200" x2="70" y2="275" stroke="#eaeef2" stroke-width="0.6"/>
+                        <line x1="200" y1="200" x2="70" y2="125" stroke="#eaeef2" stroke-width="0.6"/>
+                        
+                        <!-- Manus 数据 - 绿色满分 -->
+                        <polygon points="200,55 325,127 325,273 200,345 75,273 75,127" fill="url(#manusGrad2)" stroke="#1a7f37" stroke-width="1.5"/>
+                        
+                        <!-- 国内平均数据 - 红色25% -->
+                        <polygon points="200,162 237,181 237,219 200,238 163,219 163,181" fill="url(#domesticGrad2)" stroke="#cf222e" stroke-width="1.2"/>
+                        
+                        <!-- 维度标签 -->
+                        <text x="200" y="35" font-size="12" fill="#24292f" text-anchor="middle" font-weight="500">成本认知</text>
+                        <text x="345" y="125" font-size="12" fill="#24292f" text-anchor="start" font-weight="500">核心指标</text>
+                        <text x="345" y="280" font-size="12" fill="#24292f" text-anchor="start" font-weight="500">PMF</text>
+                        <text x="200" y="372" font-size="12" fill="#24292f" text-anchor="middle" font-weight="500">定价策略</text>
+                        <text x="55" y="280" font-size="12" fill="#24292f" text-anchor="end" font-weight="500">数据飞轮</text>
+                        <text x="55" y="125" font-size="12" fill="#24292f" text-anchor="end" font-weight="500">盈利状态</text>
+                        
+                        <!-- 中心差距标注 -->
+                        <circle cx="200" cy="200" r="20" fill="#fff" stroke="#bf8700" stroke-width="1.5"/>
+                        <text x="200" y="205" font-size="13" fill="#cf222e" text-anchor="middle" font-weight="700">75%</text>
+                        
+                        <!-- 交互热区 - 成本认知 -->
+                        <circle cx="200" cy="55" r="18" fill="transparent" class="radar-hotspot" data-dimension="cost"/>
+                        <!-- 交互热区 - 核心指标 -->
+                        <circle cx="325" cy="127" r="18" fill="transparent" class="radar-hotspot" data-dimension="metric"/>
+                        <!-- 交互热区 - PMF -->
+                        <circle cx="325" cy="273" r="18" fill="transparent" class="radar-hotspot" data-dimension="pmf"/>
+                        <!-- 交互热区 - 定价策略 -->
+                        <circle cx="200" cy="345" r="18" fill="transparent" class="radar-hotspot" data-dimension="pricing"/>
+                        <!-- 交互热区 - 数据飞轮 -->
+                        <circle cx="75" cy="273" r="18" fill="transparent" class="radar-hotspot" data-dimension="flywheel"/>
+                        <!-- 交互热区 - 盈利状态 -->
+                        <circle cx="75" cy="127" r="18" fill="transparent" class="radar-hotspot" data-dimension="profit"/>
+                    </svg>
                     
-                    <!-- 雷达图网格 -->
-                    <polygon points="220,40 325,88 325,182 220,230 115,182 115,88" fill="none" stroke="#d0d7de" stroke-width="1"/>
-                    <polygon points="220,75 288,107 288,163 220,195 152,163 152,107" fill="none" stroke="#eaeef2" stroke-width="1"/>
-                    <polygon points="220,110 251,126 251,144 220,160 189,144 189,126" fill="none" stroke="#eaeef2" stroke-width="1"/>
-                    
-                    <!-- 轴线 -->
-                    <line x1="220" y1="135" x2="220" y2="40" stroke="#eaeef2" stroke-width="1"/>
-                    <line x1="220" y1="135" x2="325" y2="88" stroke="#eaeef2" stroke-width="1"/>
-                    <line x1="220" y1="135" x2="325" y2="182" stroke="#eaeef2" stroke-width="1"/>
-                    <line x1="220" y1="135" x2="220" y2="230" stroke="#eaeef2" stroke-width="1"/>
-                    <line x1="220" y1="135" x2="115" y2="182" stroke="#eaeef2" stroke-width="1"/>
-                    <line x1="220" y1="135" x2="115" y2="88" stroke="#eaeef2" stroke-width="1"/>
-                    
-                    <!-- Manus 数据 - 绿色满分 -->
-                    <polygon points="220,45 320,90 320,180 220,225 120,180 120,90" fill="url(#manusGrad2)" stroke="#1a7f37" stroke-width="2.5"/>
-                    
-                    <!-- 国内平均数据 - 红色25% -->
-                    <polygon points="220,100 255,118 255,152 220,170 185,152 185,118" fill="url(#domesticGrad2)" stroke="#cf222e" stroke-width="2"/>
-                    
-                    <!-- 维度标签 -->
-                    <text x="220" y="28" font-size="13" fill="#24292f" text-anchor="middle" font-weight="500">成本认知</text>
-                    <text x="338" y="85" font-size="13" fill="#24292f" text-anchor="start" font-weight="500">核心指标</text>
-                    <text x="338" y="190" font-size="13" fill="#24292f" text-anchor="start" font-weight="500">PMF</text>
-                    <text x="220" y="252" font-size="13" fill="#24292f" text-anchor="middle" font-weight="500">定价策略</text>
-                    <text x="100" y="190" font-size="13" fill="#24292f" text-anchor="end" font-weight="500">数据飞轮</text>
-                    <text x="100" y="85" font-size="13" fill="#24292f" text-anchor="end" font-weight="500">盈利状态</text>
-                    
-                    <!-- 中心差距标注 -->
-                    <circle cx="220" cy="135" r="22" fill="#fff" stroke="#bf8700" stroke-width="2"/>
-                    <text x="220" y="140" font-size="14" fill="#cf222e" text-anchor="middle" font-weight="700">75%</text>
-                </svg>
+                    <!-- Tooltip容器 -->
+                    <div id="radar-tooltip" style="position: absolute; display: none; background: #fff; border: 1px solid #d0d7de; border-radius: 8px; padding: 12px 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-width: 260px; z-index: 100; pointer-events: none;">
+                        <div id="tooltip-title" style="font-size: 13px; font-weight: 600; color: #24292f; margin-bottom: 8px;"></div>
+                        <div style="display: flex; gap: 12px; margin-bottom: 8px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 10px; color: #8b949e; margin-bottom: 2px;">Manus</div>
+                                <div id="tooltip-manus" style="font-size: 12px; font-weight: 600; color: #1a7f37;"></div>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 10px; color: #8b949e; margin-bottom: 2px;">国内平均</div>
+                                <div id="tooltip-domestic" style="font-size: 12px; font-weight: 600; color: #cf222e;"></div>
+                            </div>
+                        </div>
+                        <div id="tooltip-insight" style="font-size: 11px; color: #57606a; line-height: 1.5; padding-top: 8px; border-top: 1px solid #eaeef2;"></div>
+                    </div>
+                </div>
                 <div style="display: flex; justify-content: center; gap: 24px; margin-top: 16px; font-size: 13px;">
                     <div style="display: flex; align-items: center; gap: 6px;">
                         <span style="width: 12px; height: 12px; background: #1a7f37; border-radius: 2px;"></span>
@@ -1602,7 +1633,89 @@
                         <span style="color: #bf8700; font-weight: 500;">差距 75%</span>
                     </div>
                 </div>
+                <div style="text-align: center; margin-top: 8px; font-size: 11px; color: #8b949e;">💡 将鼠标悬停在维度节点上查看详细解读</div>
             </div>
+            
+            <script>
+            (function() {
+                const tooltipData = {
+                    cost: {
+                        title: '成本认知',
+                        manus: '✓ 制造业思维',
+                        domestic: '✗ 互联网思维',
+                        insight: 'Manus把AI当制造业经营，精细化成本控制，每个token都算账；国内产品仍沿用互联网"先烧钱后变现"逻辑，忽视AI边际成本线性增长的特性。'
+                    },
+                    metric: {
+                        title: '核心指标',
+                        manus: '✓ Agent Hours',
+                        domestic: '✗ DAU迷信',
+                        insight: 'Manus以Agent工作时长衡量真实价值创造；国内产品普遍追求DAU/MAU，但AI产品中用户规模≠商业价值，反而可能意味着更多亏损。'
+                    },
+                    pmf: {
+                        title: 'PMF (产品市场匹配)',
+                        manus: '✓ Prosumers',
+                        domestic: '△ 模糊定位',
+                        insight: 'Manus精准锁定愿意付费几千美元/月的Prosumers群体；国内产品大多面向泛开发者，缺乏明确的高付费用户画像和场景定义。'
+                    },
+                    pricing: {
+                        title: '定价策略',
+                        manus: '✓ Day1收费',
+                        domestic: '✗ 免费战',
+                        insight: 'Manus从第一天就验证付费意愿，几千美元/月高价订阅；国内产品普遍采用免费/低价策略，59元/月难覆盖AI推理成本。'
+                    },
+                    flywheel: {
+                        title: '数据飞轮',
+                        manus: '✓ 正向循环',
+                        domestic: '✗ 负向螺旋',
+                        insight: 'Manus高价值用户反馈→模型优化→更好体验→更多付费；国内免费用户反馈质量低，无法形成产品迭代的正向飞轮。'
+                    },
+                    profit: {
+                        title: '盈利状态',
+                        manus: '✓ 盈亏平衡',
+                        domestic: '✗ 持续亏损',
+                        insight: 'Manus已实现盈亏平衡，商业模式验证成功；国内AI Coding产品普遍处于烧钱阶段，600万免费用户=每月持续大额支出。'
+                    }
+                };
+                
+                const container = document.querySelector('.radar-chart-container');
+                const tooltip = document.getElementById('radar-tooltip');
+                const hotspots = document.querySelectorAll('.radar-hotspot');
+                
+                hotspots.forEach(hotspot => {
+                    hotspot.style.cursor = 'pointer';
+                    
+                    hotspot.addEventListener('mouseenter', function(e) {
+                        const dimension = this.getAttribute('data-dimension');
+                        const data = tooltipData[dimension];
+                        
+                        document.getElementById('tooltip-title').textContent = data.title;
+                        document.getElementById('tooltip-manus').textContent = data.manus;
+                        document.getElementById('tooltip-domestic').textContent = data.domestic;
+                        document.getElementById('tooltip-insight').textContent = data.insight;
+                        
+                        tooltip.style.display = 'block';
+                        
+                        const rect = container.getBoundingClientRect();
+                        const hotspotRect = this.getBoundingClientRect();
+                        const tooltipRect = tooltip.getBoundingClientRect();
+                        
+                        let left = hotspotRect.left - rect.left + hotspotRect.width / 2 - tooltipRect.width / 2;
+                        let top = hotspotRect.top - rect.top - tooltipRect.height - 10;
+                        
+                        if (left < 0) left = 10;
+                        if (left + tooltipRect.width > rect.width) left = rect.width - tooltipRect.width - 10;
+                        if (top < 0) top = hotspotRect.bottom - rect.top + 10;
+                        
+                        tooltip.style.left = left + 'px';
+                        tooltip.style.top = top + 'px';
+                    });
+                    
+                    hotspot.addEventListener('mouseleave', function() {
+                        tooltip.style.display = 'none';
+                    });
+                });
+            })();
+            </script>
 
             <div class="table-wrap">
                 <table>
