@@ -472,36 +472,36 @@
         
         /* 移动端stat-card点击激活样式 */
         .stat-card.stat-active .stat-tooltip {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            bottom: auto;
-            transform: translate(-50%, -50%);
-            width: 85vw;
-            max-width: 300px;
-            z-index: 10000;
-            padding: 16px;
-            padding-top: 44px;
-            background: #fff;
-            color: #24292f;
-            border-radius: 12px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            position: fixed !important;
+            top: 50% !important;
+            left: 50% !important;
+            bottom: auto !important;
+            transform: translate(-50%, -50%) !important;
+            width: 85vw !important;
+            max-width: 300px !important;
+            z-index: 10000 !important;
+            padding: 16px !important;
+            padding-top: 44px !important;
+            background: #ffffff !important;
+            color: #24292f !important;
+            border-radius: 12px !important;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25) !important;
         }
         
         .stat-card.stat-active .stat-tooltip .stat-tooltip-title {
-            color: #24292f;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
+            color: #24292f !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            margin-bottom: 8px !important;
         }
         
         .stat-card.stat-active .stat-tooltip .stat-tooltip-desc {
-            color: #57606a;
-            font-size: 13px;
-            line-height: 1.6;
+            color: #57606a !important;
+            font-size: 13px !important;
+            line-height: 1.6 !important;
         }
         
         /* stat-tooltip关闭按钮 */
@@ -4306,13 +4306,25 @@
                 // 同时绑定click和touchend事件
                 card.addEventListener('click', handleStatCardToggle);
                 card.addEventListener('touchend', handleStatCardToggle, { passive: false });
+                
+                // 给tooltip添加点击关闭功能（点击tooltip本身也能关闭）
+                tooltip.addEventListener('click', (e) => {
+                    // 如果点击的是关闭按钮，不处理（由关闭按钮自己处理）
+                    if (e.target.classList.contains('stat-tooltip-close')) return;
+                    e.stopPropagation();
+                });
             });
             
             // 点击遮罩层时也关闭stat-card
-            overlay.addEventListener('click', closeAllStatCards);
-            overlay.addEventListener('touchend', (e) => {
+            overlay.addEventListener('click', () => {
                 closeAllStatCards();
-            }, { passive: true });
+                overlay.classList.remove('active');
+            });
+            overlay.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                closeAllStatCards();
+                overlay.classList.remove('active');
+            }, { passive: false });
         })();
     </script>
     
