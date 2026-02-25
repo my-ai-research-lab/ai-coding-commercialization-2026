@@ -470,6 +470,26 @@
             pointer-events: none;
         }
         
+        /* 移动端stat-card点击激活样式 */
+        .stat-card.stat-active .stat-tooltip {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            bottom: auto;
+            transform: translate(-50%, -50%);
+            width: 90vw;
+            max-width: 320px;
+            z-index: 10000;
+            padding: 20px;
+        }
+        
+        .stat-card.stat-active .stat-tooltip::after {
+            display: none;
+        }
+        
         .stat-tooltip::after {
             content: '';
             position: absolute;
@@ -1492,6 +1512,30 @@
             /* 确保移动端可点击 */
             .has-tip {
                 cursor: pointer;
+                -webkit-tap-highlight-color: rgba(9, 105, 218, 0.1);
+            }
+            /* 移动端stat-card hover禁用 */
+            .stat-card:hover .stat-tooltip {
+                opacity: 0;
+                visibility: hidden;
+            }
+            .stat-card.stat-active .stat-tooltip {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+            /* 移动端stat-card点击提示 */
+            .stat-card::after {
+                content: '点击查看详情';
+                position: absolute;
+                bottom: 8px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 10px;
+                color: var(--color-info);
+                opacity: 0.6;
+            }
+            .stat-card {
+                padding-bottom: 28px !important;
                 -webkit-tap-highlight-color: rgba(9, 105, 218, 0.1);
             }
             .toc {
@@ -4116,8 +4160,78 @@
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     closeAllTips();
+                    closeAllStatCards();
                 }
             });
+        })();
+        
+        // 移动端stat-card点击交互
+        (function() {
+            // 检测是否为移动设备或触摸设备
+            function isMobileOrTouch() {
+                return window.innerWidth <= 768 || 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            }
+            
+            // 获取遮罩层（复用已有的或创建新的）
+            let overlay = document.querySelector('.tip-overlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.className = 'tip-overlay';
+                document.body.appendChild(overlay);
+            }
+            
+            // 关闭所有打开的stat-card
+            function closeAllStatCards() {
+                document.querySelectorAll('.stat-card.stat-active').forEach(el => {
+                    el.classList.remove('stat-active');
+                });
+                // 只有没有其他激活的tip时才隐藏overlay
+                if (!document.querySelector('.has-tip.tip-active')) {
+                    overlay.classList.remove('active');
+                }
+            }
+            
+            // 暴露到全局以便其他地方调用
+            window.closeAllStatCards = closeAllStatCards;
+            
+            // 为所有stat-card添加事件
+            document.querySelectorAll('.stat-card').forEach(card => {
+                const tooltip = card.querySelector('.stat-tooltip');
+                if (!tooltip) return;
+                
+                // 处理点击/触摸事件
+                function handleStatCardToggle(e) {
+                    if (!isMobileOrTouch()) return;
+                    
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const isActive = card.classList.contains('stat-active');
+                    
+                    // 先关闭所有
+                    closeAllStatCards();
+                    // 也关闭has-tip的弹窗
+                    document.querySelectorAll('.has-tip.tip-active').forEach(el => {
+                        el.classList.remove('tip-active');
+                    });
+                    
+                    // 如果当前不是激活状态，则打开
+                    if (!isActive) {
+                        card.classList.add('stat-active');
+                        overlay.classList.add('active');
+                    }
+                }
+                
+                // 同时绑定click和touchend事件
+                card.addEventListener('click', handleStatCardToggle);
+                card.addEventListener('touchend', handleStatCardToggle, { passive: false });
+            });
+            
+            // 点击遮罩层时也关闭stat-card
+            overlay.addEventListener('click', closeAllStatCards);
+            overlay.addEventListener('touchend', (e) => {
+                closeAllStatCards();
+            }, { passive: true });
         })();
     </script>
     
