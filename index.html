@@ -483,7 +483,56 @@
             width: 90vw;
             max-width: 320px;
             z-index: 10000;
-            padding: 20px;
+            padding: 24px;
+            padding-top: 40px;
+            background: #fff;
+            color: #24292f;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .stat-card.stat-active .stat-tooltip .stat-tooltip-title {
+            color: #24292f;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .stat-card.stat-active .stat-tooltip .stat-tooltip-desc {
+            color: #57606a;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        /* stat-tooltip关闭按钮 */
+        .stat-tooltip-close {
+            display: none;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            background: #f6f8fa;
+            color: #57606a;
+            border: 1px solid #d0d7de;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10001;
+            transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .stat-tooltip-close:hover,
+        .stat-tooltip-close:active {
+            background: #cf222e;
+            color: #fff;
+            border-color: #cf222e;
+        }
+        
+        .stat-card.stat-active .stat-tooltip-close {
+            display: flex;
         }
         
         .stat-card.stat-active .stat-tooltip::after {
@@ -1463,6 +1512,22 @@
                 max-width: 360px;
                 max-height: 70vh;
                 z-index: 10000;
+                background: #fff;
+                color: #24292f;
+                border-radius: 16px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                padding: 24px;
+                padding-top: 40px;
+            }
+            .has-tip.tip-active .tip-box .tip-title {
+                color: #24292f;
+                border-bottom-color: #eaeef2;
+            }
+            .has-tip.tip-active .tip-box .tip-text {
+                color: #57606a;
+            }
+            .has-tip.tip-active .tip-box .tip-label {
+                color: #0969da;
             }
             /* 移动端Tips遮罩层 */
             .tip-overlay {
@@ -1482,21 +1547,27 @@
             .tip-close {
                 display: none;
                 position: absolute;
-                top: -12px;
-                right: -12px;
+                top: 12px;
+                right: 12px;
                 width: 32px;
                 height: 32px;
-                background: var(--color-text-primary);
-                color: #fff;
-                border: none;
+                background: #f6f8fa;
+                color: #57606a;
+                border: 1px solid #d0d7de;
                 border-radius: 50%;
                 align-items: center;
                 justify-content: center;
-                font-size: 18px;
+                font-size: 20px;
                 cursor: pointer;
                 z-index: 10001;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                transition: all 0.2s ease;
                 -webkit-tap-highlight-color: transparent;
+            }
+            .tip-close:hover,
+            .tip-close:active {
+                background: #cf222e;
+                color: #fff;
+                border-color: #cf222e;
             }
             .has-tip.tip-active .tip-close {
                 display: flex;
@@ -4198,6 +4269,26 @@
             document.querySelectorAll('.stat-card').forEach(card => {
                 const tooltip = card.querySelector('.stat-tooltip');
                 if (!tooltip) return;
+                
+                // 添加关闭按钮
+                if (!tooltip.querySelector('.stat-tooltip-close')) {
+                    const closeBtn = document.createElement('button');
+                    closeBtn.className = 'stat-tooltip-close';
+                    closeBtn.innerHTML = '×';
+                    closeBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        closeAllStatCards();
+                        overlay.classList.remove('active');
+                    });
+                    closeBtn.addEventListener('touchend', (e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        closeAllStatCards();
+                        overlay.classList.remove('active');
+                    }, { passive: false });
+                    tooltip.insertBefore(closeBtn, tooltip.firstChild);
+                }
                 
                 // 处理点击/触摸事件
                 function handleStatCardToggle(e) {
