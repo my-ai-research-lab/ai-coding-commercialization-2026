@@ -1425,8 +1425,67 @@
             .section { 
                 padding: var(--space-4); 
             }
-            .tip-box { 
-                display: none !important; 
+            /* 移动端Tips: 隐藏hover触发，改用点击触发 */
+            .has-tip:hover .tip-box {
+                opacity: 0;
+                visibility: hidden;
+            }
+            .has-tip.tip-active .tip-box {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 90vw;
+                max-width: 360px;
+                max-height: 70vh;
+                z-index: 10000;
+            }
+            /* 移动端Tips遮罩层 */
+            .tip-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 9999;
+            }
+            .tip-overlay.active {
+                display: block;
+            }
+            /* 移动端关闭按钮 */
+            .tip-close {
+                display: none;
+            }
+            .has-tip.tip-active .tip-close {
+                display: flex;
+                position: absolute;
+                top: -12px;
+                right: -12px;
+                width: 28px;
+                height: 28px;
+                background: var(--color-text-primary);
+                color: #fff;
+                border: none;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                cursor: pointer;
+                z-index: 10001;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            }
+            /* 移动端Tips点击提示图标 */
+            .has-tip::after {
+                content: 'ⓘ';
+                margin-left: 4px;
+                font-size: 12px;
+                color: var(--color-info);
+                opacity: 0.7;
             }
             .toc {
                 display: none;
@@ -1921,10 +1980,7 @@
                 display: none;
             }
             
-            /* Tooltip 移动端禁用 */
-            .tip-box {
-                display: none !important;
-            }
+            /* Tooltip 移动端: 使用点击交互 - 样式已在768px断点定义 */
         }
         
         @media (max-width: 480px) {
@@ -3974,6 +4030,73 @@
                 `;
             }
         });
+        
+        // 移动端Tips点击交互
+        (function() {
+            // 创建遮罩层
+            const overlay = document.createElement('div');
+            overlay.className = 'tip-overlay';
+            document.body.appendChild(overlay);
+            
+            // 检测是否为移动设备或触摸设备
+            function isMobileOrTouch() {
+                return window.innerWidth <= 768 || 'ontouchstart' in window;
+            }
+            
+            // 关闭所有打开的Tips
+            function closeAllTips() {
+                document.querySelectorAll('.has-tip.tip-active').forEach(el => {
+                    el.classList.remove('tip-active');
+                });
+                overlay.classList.remove('active');
+            }
+            
+            // 为所有has-tip元素添加点击事件
+            document.querySelectorAll('.has-tip').forEach(el => {
+                const tipBox = el.querySelector('.tip-box');
+                if (!tipBox) return;
+                
+                // 添加关闭按钮
+                if (!tipBox.querySelector('.tip-close')) {
+                    const closeBtn = document.createElement('button');
+                    closeBtn.className = 'tip-close';
+                    closeBtn.innerHTML = '×';
+                    closeBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        closeAllTips();
+                    });
+                    tipBox.appendChild(closeBtn);
+                }
+                
+                el.addEventListener('click', (e) => {
+                    if (!isMobileOrTouch()) return;
+                    
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const isActive = el.classList.contains('tip-active');
+                    
+                    // 先关闭所有其他Tips
+                    closeAllTips();
+                    
+                    // 如果当前不是激活状态，则打开
+                    if (!isActive) {
+                        el.classList.add('tip-active');
+                        overlay.classList.add('active');
+                    }
+                });
+            });
+            
+            // 点击遮罩层关闭Tips
+            overlay.addEventListener('click', closeAllTips);
+            
+            // 按ESC键关闭Tips
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeAllTips();
+                }
+            });
+        })();
     </script>
     
     <!-- Global Control Buttons -->
